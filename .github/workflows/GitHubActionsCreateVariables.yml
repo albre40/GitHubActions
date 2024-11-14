@@ -1,0 +1,43 @@
+# This is a basic workflow to help you get started with Actions
+
+name: GitHub Actions - Create Variables
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  defaultVariable: "default"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build-1:
+    name: "Job - Build 1"
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: "Step - Run a ubuntu script 1"
+        run: echo "I'm running on ubuntu 1"
+
+      - name: "Step - Run script with all variables"
+        run: echo "Variable Default: ${{ env.defaultVariable }}"
+
+      - name: "Step - Run script with step variables missing"
+        run: echo "Variable Default: ${{ env.defaultVariable }}"
+
+
+  build-2:
+    name: "Job - Build 2"
+    needs: build-1
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Step - Run a ubuntu script 2"
+        run: echo "I'm running on ubuntu 2"
+
+      - name: "Step - Run script with step and job variables missing"
+        run: echo "Variable Default: ${{ env.defaultVariable }}"
+
