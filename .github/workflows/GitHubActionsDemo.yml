@@ -35,15 +35,20 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-  build-db:
+  windows-app:
     runs-on: windows-lastest
     steps:
       - name: Run a windows script 1
         run: echo "I'm running on windows 1"
 
-  package-app:
-    needs: [build-app, build-db]
+  macos-app:
     runs-on: macos-latest
     steps:
       - name: Run a macos script 2
         run: echo "I'm running on macos 2"
+
+  ubuntu-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a ubuntu script 2
+        run: echo "I'm running on ubuntu 2"
