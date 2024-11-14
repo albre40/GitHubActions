@@ -37,14 +37,14 @@ jobs:
 
   build-db:
     needs: build-app
-    runs-on: windows-lastest
+    runs-on: macos-lastest
     steps:
-      - name: Run a windows script
-        run: echo "I'm running on windows"
+      - name: Run a macos script 1
+        run: echo "I'm running on macos 1"
 
   package-app:
     needs: [build-app, build-db]
     runs-on: macos-latest
     steps:
-      - name: Run a macos script
-        run: echo "I'm running on macos"
+      - name: Run a macos script 2
+        run: echo "I'm running on macos 2"
