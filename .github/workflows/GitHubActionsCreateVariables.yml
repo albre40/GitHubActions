@@ -29,17 +29,23 @@ jobs:
         run: |
           echo "Variable Default: ${{ env.defaultVariable }}"
 
-      - name: "Step 3 - Print new default variable"
+      - name: "Step 3 - Replace default variable"
         run: |
           echo "defaultVariable=newDefault" >> $GITHUB_ENV
+        # Cannot use the new variable in the same step
+        # echo "Variable Default: ${{ env.defaultVariable }}"
+
+      - name: "Step 4 - Print new default variable"
+        run: |
           echo "Variable Default: ${{ env.defaultVariable }}"
 
-      - name: "Step 4 - Create new variable and print"
+      - name: "Step 5 - Create new variable"
         run: |
           echo "newVariable=new" >> $GITHUB_ENV
-          echo "New Variable: ${{ env.newVariable }}"
+        # Cannot use the new variable in the same step
+        # echo "New Variable: ${{ env.newVariable }}"
 
-      - name: "Step 5 - Print new variable"
+      - name: "Step 6 - Print new variable"
         run: |
           echo "New Variable: ${{ env.newVariable }}"
 
