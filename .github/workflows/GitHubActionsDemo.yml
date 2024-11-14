@@ -48,7 +48,8 @@ jobs:
         run: echo "I'm running on macos 2"
 
   ubuntu-app:
+    needs: build-app
     runs-on: ubuntu-latest
     steps:
-      - name: Run a ubuntu script 2
-        run: echo "I'm running on ubuntu 2"
+      - name: Run a ubuntu script
+        run: echo "I'm running on ubuntu"
