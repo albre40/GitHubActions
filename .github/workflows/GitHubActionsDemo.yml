@@ -35,11 +35,12 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-  windows-app:
-    runs-on: windows-lastest
-    steps:
-      - name: Run a windows script 1
-        run: echo "I'm running on windows 1"
+  # Disable windows-app job because no runner is available
+  #windows-app:
+  #  runs-on: windows-lastest
+  #  steps:
+  #    - name: Run a windows script 1
+  #      run: echo "I'm running on windows 1"
 
   macos-app:
     runs-on: macos-latest
