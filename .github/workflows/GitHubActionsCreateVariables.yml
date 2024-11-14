@@ -13,34 +13,66 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build-1:
-    name: "Job - Build 1"
+  build-1-a:
+    name: "Job 1A - Build"
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: "Step - Run a ubuntu script 1"
-        run: echo "I'm running on ubuntu 1"
+      - name: "Step 1 - Hello World"
+        run: |
+          echo "Hello world, I'm running on ubuntu"
+          wait 10
 
-      - name: "Step - Run script with all variables"
+      - name: "Step 2 - Print default variable"
         run: |
           echo "Variable Default: ${{ env.defaultVariable }}"
 
-      - name: "Step - Run script with step variables missing"
+      - name: "Step 3 - Print new default variable"
         run: |
+          echo "defaultVariable=newDefault" >> $GITHUB_ENV
           echo "Variable Default: ${{ env.defaultVariable }}"
 
+      - name: "Step 4 - Create new variable and print"
+        run: |
+          echo "newVariable=new" >> $GITHUB_ENV
+          echo "New Variable: ${{ env.newVariable }}"
+
+      - name: "Step 5 - Print new variable"
+        run: |
+          echo "New Variable: ${{ env.newVariable }}"
 
   build-2:
-    name: "Job - Build 2"
+    name: "Job 2 - Build"
     needs: build-1
     runs-on: ubuntu-latest
     steps:
-      - name: "Step - Run a ubuntu script 2"
-        run: echo "I'm running on ubuntu 2"
+      - name: "Step 1 - Hello World"
+        run: echo "Hello world, I'm running on ubuntu"
 
-      - name: "Step - Run script with step and job variables missing"
+      - name: "Step 2 - Print default variable"
         run: |
           echo "Variable Default: ${{ env.defaultVariable }}"
 
+      - name: "Step 3 - Print new variable"
+        run: |
+          echo "New Variable: ${{ env.newVariable }}"
+
+  build-1-b:
+    name: "Job 1B - Build"
+    needs: build-1
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Step 1 - Hello World"
+        run: |
+          echo "Hello world, I'm running on ubuntu"
+          wait 1
+
+      - name: "Step 2 - Print default variable"
+        run: |
+          echo "Variable Default: ${{ env.defaultVariable }}"
+
+      - name: "Step 3 - Print new variable"
+        run: |
+          echo "New Variable: ${{ env.newVariable }}"
