@@ -36,15 +36,14 @@ jobs:
           echo test, and deploy your project.
 
   build-db:
-    needs: build-app
-    runs-on: ubuntu-lastest
+    runs-on: windows-lastest
     steps:
-      - name: Run a ubuntu script 1
-        run: echo "I'm running on ubuntu 1"
+      - name: Run a windows script 1
+        run: echo "I'm running on windows 1"
 
   package-app:
     needs: [build-app, build-db]
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - name: Run a ubuntu script 2
-        run: echo "I'm running on ubuntu 2"
+      - name: Run a macos script 2
+        run: echo "I'm running on macos 2"
