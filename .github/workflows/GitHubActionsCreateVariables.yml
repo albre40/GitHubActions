@@ -45,7 +45,7 @@ jobs:
 
   build-2:
     name: "Job 2 - Build"
-    needs: build-1
+    needs: build-1-a
     runs-on: ubuntu-latest
     steps:
       - name: "Step 1 - Hello World"
@@ -61,7 +61,6 @@ jobs:
 
   build-1-b:
     name: "Job 1B - Build"
-    needs: build-1
     runs-on: ubuntu-latest
     steps:
       - name: "Step 1 - Hello World"
