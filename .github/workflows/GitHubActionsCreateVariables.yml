@@ -13,8 +13,8 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build-1-a:
-    name: "Job 1A - Build"
+  build-a-1:
+    name: "Job A1 - Build"
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -49,9 +49,9 @@ jobs:
         run: |
           echo "New Variable: ${{ env.newVariable }}"
 
-  build-2:
-    name: "Job 2 - Build"
-    needs: build-1-a
+  build-a-2:
+    name: "Job A2 - Build"
+    needs: build-a-1
     runs-on: ubuntu-latest
     steps:
       - name: "Step 1 - Hello World"
@@ -65,8 +65,8 @@ jobs:
         run: |
           echo "New Variable: ${{ env.newVariable }}"
 
-  build-1-b:
-    name: "Job 1B - Build"
+  build-b-1:
+    name: "Job B1 - Build"
     runs-on: ubuntu-latest
     steps:
       - name: "Step 1 - Hello World"
