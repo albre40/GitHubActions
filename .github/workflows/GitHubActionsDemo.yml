@@ -37,14 +37,14 @@ jobs:
 
   build-db:
     needs: build-app
-    runs-on: macos-lastest
+    runs-on: ubuntu-lastest
     steps:
-      - name: Run a macos script 1
-        run: echo "I'm running on macos 1"
+      - name: Run a ubuntu script 1
+        run: echo "I'm running on ubuntu 1"
 
   package-app:
     needs: [build-app, build-db]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Run a macos script 2
-        run: echo "I'm running on macos 2"
+      - name: Run a ubuntu script 2
+        run: echo "I'm running on ubuntu 2"
