@@ -24,10 +24,10 @@ jobs:
         run: echo "I'm running on ubuntu 1"
 
       - name: "Step - Run script with all variables"
-        run: echo "Variable Default: ${{ env.defaultVariable }}"
+        run: echo "Variable Default ${{ env.defaultVariable }}"
 
       - name: "Step - Run script with step variables missing"
-        run: echo "Variable Default: ${{ env.defaultVariable }}"
+        run: echo "Variable Default ${{ env.defaultVariable }}"
 
 
   build-2:
@@ -39,5 +39,5 @@ jobs:
         run: echo "I'm running on ubuntu 2"
 
       - name: "Step - Run script with step and job variables missing"
-        run: echo "Variable Default: ${{ env.defaultVariable }}"
+        run: echo "Variable Default ${{ env.defaultVariable }}"
 
