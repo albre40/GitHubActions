@@ -15,6 +15,7 @@ on:
 
 env:
   envWorkflowVariable: "I'm an environment variable at the workflow level"
+  overridenVariable: "workflow"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,6 +27,7 @@ jobs:
 
     env:
       envJobVariable: "I'm an environment variable at the job level"
+      overridenVariable: "job"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,16 +37,21 @@ jobs:
       - name: "Step - Run script with all variables"
         env:
           envStepVariable: "I'm an environment variable at the step level"
+          overridenVariable: "step"
+
         run: |
           echo "Variable Workflow: ${{ env.envWorkflowVariable }}"
           echo "Variable Job: ${{ env.envJobVariable }}"
           echo "Variable Step: ${{ env.envStepVariable }}"
+          echo "Variable Overriden: ${{ env.overridenVariable }}"
 
       - name: "Step - Run script with step variables missing"
         run: |
           echo "Variable Workflow: ${{ env.envWorkflowVariable }}"
           echo "Variable Job: ${{ env.envJobVariable }}"
           echo "Variable Step: ${{ env.envStepVariable }}"
+          echo "Variable Overriden: ${{ env.overridenVariable }}"
+
 
   build-2:
     name: "Job - Build 2"
@@ -59,3 +66,5 @@ jobs:
           echo "Variable Workflow: ${{ env.envWorkflowVariable }}"
           echo "Variable Job: ${{ env.envJobVariable }}"
           echo "Variable Step: ${{ env.envStepVariable }}"
+          echo "Variable Overriden: ${{ env.overridenVariable }}"
+
