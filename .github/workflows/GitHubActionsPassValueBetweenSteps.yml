@@ -1,0 +1,30 @@
+name: GitHub Actions - Pass Value Between Steps
+on:
+  workflow_dispatch:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build-1:
+    name: "Job - Build 1"
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: "Step 1 - Set the value using ENV variables"
+        run: |
+          echo "myVar=step-1-value" >> $GITHUB_ENV
+
+      - name: "Step 2 - Create variables"
+        run: |
+          echo "::set-output name=myOutputVar1::step-2-value-a"
+          echo "::set-output name=myOutputVar2::step-2-value-b"
+
+      - name: "Step 3 - Print variables"
+        run: |
+          echo "myVar: ${{ env.myVar }}"
+          echo "myOutputVar1: ${{ steps.build-1.outputs.myOutputVar1 }}"
+          echo "myOutputVar2: ${{ steps.build-1.outputs.myOutputVar2 }}"
+
+
