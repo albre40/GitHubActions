@@ -9,8 +9,8 @@ jobs:
 
     # This is the key to pass values between jobs
     outputs:
-      myOutputVar1: ${{ steps.build-1.outputs.myOutputVar1 }}
-      myOutputVar2: ${{ steps.build-1.outputs.myOutputVar2 }}
+      myOutputVar1: ${{ steps.step-create-value.outputs.myOutputVar1 }}
+      myOutputVar2: ${{ steps.step-create-value.outputs.myOutputVar2 }}
 
     steps:
       - name: "Step 1 - Set the value using ENV variables"
@@ -18,15 +18,16 @@ jobs:
           echo "myVar=step-1-value" >> $GITHUB_ENV
 
       - name: "Step 2 - Create variables"
+        id: step-create-values
         run: |
-          echo "::set-output name=myOutputVar1::step-2-value-a"
-          echo "::set-output name=myOutputVar2::step-2-value-b"
+          echo "myOutputVar1=step-2-value-a" >> $GITHUB_OUTPUT
+          echo "myOutputVar2=step-2-value-b" >> $GITHUB_OUTPUT
 
       - name: "Step 3 - Print variables"
         run: |
           echo "myVar: ${{ env.myVar }}"
-          echo "myOutputVar1: ${{ steps.build-1.outputs.myOutputVar1 }}"
-          echo "myOutputVar2: ${{ steps.build-1.outputs.myOutputVar2 }}"
+          echo "myOutputVar1: ${{ steps.step-create-value.outputs.myOutputVar1 }}"
+          echo "myOutputVar2: ${{ steps.step-create-value.outputs.myOutputVar2 }}"
 
   build-2:
     runs-on: ubuntu-latest

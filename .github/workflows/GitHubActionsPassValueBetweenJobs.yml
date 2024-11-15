@@ -13,6 +13,7 @@ jobs:
           echo "myVar=step-1-value" >> $GITHUB_ENV
 
       - name: "Step 2 - Create variables"
+        id: step-create-values
         run: |
           echo "myOutputVar1=step-2-value-a" >> $GITHUB_OUTPUT
           echo "myOutputVar2=step-2-value-b" >> $GITHUB_OUTPUT
@@ -20,7 +21,7 @@ jobs:
       - name: "Step 3 - Print variables"
         run: |
           echo "myVar: ${{ env.myVar }}"
-          echo "myOutputVar1: ${{ steps.build-1.outputs.myOutputVar1 }}"
-          echo "myOutputVar2: ${{ steps.build-1.outputs.myOutputVar2 }}"
+          echo "myOutputVar1: ${{ steps.step-create-value.outputs.myOutputVar1 }}"
+          echo "myOutputVar2: ${{ steps.step-create-value.outputs.myOutputVar2 }}"
 
 
