@@ -21,6 +21,23 @@ jobs:
       - name: "Step 1 - Display GitHub environment variables"
         run: env
 
+      - name: "Step 2 - Display common variables"
+        run: |
+          echo "GITHUB_ACTION: ${{ github.action }}"
+          echo "GITHUB_ENV: ${{ github.action }}"
+          echo "GITHUB_API_URL: ${{ github.api_url }}"
+          echo "GITHUB_SERVER_URL: ${{ github.server_url }}"
+          echo "GITHUB_JOB: ${{ github.job }}"
+          echo "GITHUB_PATH: ${{ github.path }}"
+          echo "GITHUB_REPOSITORY: ${{ github.repository }}"
+          echo "GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}"
+          echo "GITHUB_RUN_ID: ${{ github.run_id }}"
+          echo "GITHUB_RUN_NUMBER: ${{ github.run_number }}"
+          echo "GITHUB_WORKFLOW: ${{ github.workflow }}"
+          echo "RUNNER_OS: ${{ runner.os }}"
+          echo "RUNNER_NAME: ${{ runner.name }}"
+
+
   macos-environment-variables:
     name: "Job - MacOS Environment Variables"
     # The type of runner that the job will run on
