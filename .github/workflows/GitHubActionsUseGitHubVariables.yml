@@ -8,15 +8,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   ubuntu-environment-variables:
     name: "Job - Ubuntu Environment Variables"
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: "Step 1 - Display GitHub environment variables"
         run: env
@@ -40,20 +35,14 @@ jobs:
 
   macos-environment-variables:
     name: "Job - MacOS Environment Variables"
-    # The type of runner that the job will run on
     runs-on: macos-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: "Step 1 - Display GitHub environment variables"
         run: env
 
   windows-environment-variables:
     name: "Job - Windows Environment Variables"
-    # The type of runner that the job will run on
     runs-on: windows-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: "Step 1 - Display GitHub environment variables"
         run: env

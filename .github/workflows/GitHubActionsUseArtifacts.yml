@@ -1,7 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 # Many vars start with RUNNER_ and ITHUB_.
 
-name: GitHub Actions - Use GitHub Artifacts
+name: GitHub Actions - Use Artifacts
 
 # Controls when the workflow will run
 on:

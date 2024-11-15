@@ -1,0 +1,45 @@
+name: GitHub Actions - Use Environment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deployment-prod:
+    name: "Job - Deployment PROD"
+    runs-on: ubuntu-latest
+
+    environment:
+      name: "production"
+      url: "https://github.com"
+
+    steps:
+      - name: "Step - Print variable from Environment"
+        run: |
+          echo "APP_VAR: ${{ env.APP_VAR }}"
+
+  deployment-app:
+    name: "Job - Deployment APP"
+    runs-on: ubuntu-latest
+
+    environment:
+      name: "approval"
+      url: "https://github.com"
+
+    steps:
+      - name: "Step - Print Secret from Environment"
+        run: |
+          echo "APP_VAR: ${{ env.APP_VAR }}"
+
+  deployment-dev:
+    name: "Job - Deployment DEV"
+    runs-on: ubuntu-latest
+
+    environment:
+      name: "development"
+      url: "https://github.com"
+
+    steps:
+      - name: "Step - Print Secret from Environment"
+        run: |
+          echo "APP_VAR: ${{ env.APP_VAR }}"
+
