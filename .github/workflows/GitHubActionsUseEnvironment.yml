@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: "Step - Print variable from Environment"
         run: |
-          echo "APP_VAR: ${{ github.APP_VAR }}"
+          echo "APP_VAR: ${{ vars.APP_VAR }}"
 
   deployment-app:
     name: "Job - Deployment APP"
@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: "Step - Print Secret from Environment"
         run: |
-          echo "APP_VAR: ${{ github.APP_VAR }}"
+          echo "APP_VAR: ${{ vars.APP_VAR }}"
 
   deployment-dev:
     name: "Job - Deployment DEV"
@@ -41,5 +41,5 @@ jobs:
     steps:
       - name: "Step - Print Secret from Environment"
         run: |
-          echo "APP_VAR: ${{ github.APP_VAR }}"
+          echo "APP_VAR: ${{ vars.APP_VAR }}"
 
