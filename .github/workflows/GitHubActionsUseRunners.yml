@@ -6,7 +6,7 @@ on:
 jobs:
   build-a-1:
     name: "Job A1 - Build"
-    runs-on: [self-hosted, dev]
+    runs-on: [self-hosted, Linux, X64, local-machine]
     steps:
       - name: "Step 1 - Hello World"
         run: |
