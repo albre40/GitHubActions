@@ -1,0 +1,17 @@
+name: GitHub Actions - Use Runners
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-a-1:
+    name: "Job A1 - Build"
+    runs-on: [self-hosted, dev]
+    steps:
+      - name: "Step 1 - Hello World"
+        run: |
+          echo "Hello world, I'm running on a self-hosted runner"
+
+      - name: "Step 2 - Sleep 100 seconds"
+        run: |
+          sleep 100
