@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-a-1:
-    name: "Job A1 - Build"
+  build-1:
+    name: "Job 1 - Build"
     runs-on: [self-hosted, Linux, X64, local-machine]
     steps:
       - name: "Step 1 - Hello World"
