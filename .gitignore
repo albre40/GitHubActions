@@ -1,0 +1,15 @@
+# Ignore settings.php
+settings.php
+# Ignore Drupal's file directory
+files
+# Ignore SQL files
+*.sql
+# Ignore CSS map files
+*.map
+# Ignore environment folder
+.vscode
+# Ignore node file directory
+node_modules
+# Ignore Windows and Mac hidden files
+*:Zone.Identifier
+.DS_Store
