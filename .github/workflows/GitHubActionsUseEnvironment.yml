@@ -42,4 +42,3 @@ jobs:
       - name: "Step - Print Secret from Environment"
         run: |
           echo "APP_VAR: ${{ vars.APP_VAR }}"
-

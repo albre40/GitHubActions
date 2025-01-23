@@ -61,4 +61,3 @@ jobs:
           echo "Variable Job: ${{ env.envJobVariable }}"
           echo "Variable Step: ${{ env.envStepVariable }}"
           echo "Variable Overriden: ${{ env.overridenVariable }}"
-

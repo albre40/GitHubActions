@@ -40,4 +40,3 @@ jobs:
           echo "myVar: ${{ needs.build-1.outputs.myOutputVar1 }}"
           echo "myOutputVar1: ${{ needs.build-1.outputs.myOutputVar1 }}"
           echo "myOutputVar2: ${{ needs.build-1.outputs.myOutputVar2 }}"
-

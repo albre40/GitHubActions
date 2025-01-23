@@ -23,5 +23,3 @@ jobs:
           echo "myVar: ${{ env.myVar }}"
           echo "myOutputVar1: ${{ steps.step-create-values.outputs.myOutputVar1 }}"
           echo "myOutputVar2: ${{ steps.step-create-values.outputs.myOutputVar2 }}"
-
-
